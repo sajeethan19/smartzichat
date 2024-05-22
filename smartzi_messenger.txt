@@ -1,0 +1,44 @@
+smartzi_messenger
+├── .env
+├── .eslintrc.json
+├── .gitignore
+├── app
+│   ├── favicon.ico
+│   ├── globals.css
+│   ├── layout.tsx
+│   ├── messengerStorage.JSON
+│   ├── page.module.css
+│   └── page.tsx
+├── backend
+│   ├── .env
+│   ├── mongodb.js
+│   ├── package-lock.json
+│   ├── package.json
+│   └── server.js
+├── components
+│   ├── addContact.tsx
+│   ├── MessageComponent.tsx
+│   ├── panel.css
+│   ├── panel.tsx
+│   ├── RecieveMessage.tsx
+│   ├── sendMessage.tsx
+│   ├── window.css
+│   └── window.tsx
+├── database
+│   ├── index.js
+│   ├── package-lock.json
+│   └── package.json
+├── next-env.d.ts
+├── next.config.mjs
+├── ngrok-v3-stable-windows-amd64
+│   └── ngrok.exe
+├── package-lock.json
+├── package.json
+├── public
+│   ├── emoji.png
+│   ├── emoji.svg
+│   ├── next.svg
+│   ├── send.svg
+│   └── vercel.svg
+├── README.md
+└── tsconfig.json

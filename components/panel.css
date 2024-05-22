@@ -1,0 +1,23 @@
+.contactList{
+    max-height: 92%;
+    overflow-y: scroll;
+    scrollbar-width: none;
+}
+.contactCard{
+    height: 15vh;
+    border-bottom: 1pt solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.contactCardSelected{
+    height: 15vh;
+    border-bottom: 1pt solid black;
+    background-color: rgb(226, 226, 226);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    pointer-events: none;
+}
