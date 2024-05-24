@@ -18,9 +18,6 @@ function Window({chatHistory,mobNumber,sendWatcher,setSendWatcher}:{chatHistory:
         }
 
     }
-    window.onload = function() {
-        document.getElementById('lastItem')?.scrollIntoView();
-    };
 
    useEffect(() => {
     setMsg('')
