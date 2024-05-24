@@ -14,7 +14,7 @@
 .contactCardSelected{
     height: 15vh;
     border-bottom: 1pt solid black;
-    background-color: rgb(226, 226, 226);
+    background-color: rgb(40, 40, 40);;
     display: flex;
     align-items: center;
     justify-content: center;
