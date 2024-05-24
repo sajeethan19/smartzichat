@@ -18,9 +18,14 @@ function Window({chatHistory,mobNumber,sendWatcher,setSendWatcher}:{chatHistory:
         }
 
     }
+    window.onload = function() {
+        document.getElementById('lastItem')?.scrollIntoView();
+    };
 
    useEffect(() => {
     setMsg('')
+    document.getElementById('lastItem')?.scrollIntoView()
+    
    },[chatHistory])
 
     return (
@@ -35,7 +40,7 @@ function Window({chatHistory,mobNumber,sendWatcher,setSendWatcher}:{chatHistory:
                         <div className='convArea'>
                                 {chatHistory && chatHistory.messageList && chatHistory.messageList.map((txt:any,index:any) => (
                                 <div key={index} className={`${(txt.type == "send")? "sendBoxContainer" : "recieveBoxContainer"}`}>
-                                    <div className={`${(txt.type == "send")? "sendBox" : "recieveBox"}`}>
+                                    <div className={`${(txt.type == "send")? "sendBox" : "recieveBox"}`} id={`${(index == chatHistory.messageList.length-1)? "lastItem" : ""}`}>
                                         {txt.text}
                                     </div>
                                 </div>
@@ -43,7 +48,7 @@ function Window({chatHistory,mobNumber,sendWatcher,setSendWatcher}:{chatHistory:
                         </div>
                     }
                 <div className='senderBox'>
-                    <div className='emoji'><img src='/emoji.png' alt='face' height="25px"/></div>
+                    <div className='emoji'><img src='./emoji.png' alt='face' height="25px"/></div>
                     <div className='input'>
                         <input className='inputText' type='text' value={msg} onChange={(e) => {setMsg(e.target.value);}} onKeyDown={(e) => {(e.key=='Enter')? sender():null}}/>
                     </div>
