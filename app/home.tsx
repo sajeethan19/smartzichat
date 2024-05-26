@@ -4,8 +4,9 @@ import Panel from "@/components/panel";
 import Window from "@/components/window";
 import { useEffect, useState } from "react";
 import { addContact } from "@/components/addContact";
-import axios from "axios";
 import useWebSocket from 'react-use-websocket'
+import { loadMessages } from "@/components/loadMessages";
+import AuthKeyField from "@/components/authKeyField";
 
 export default function Home() {
   
@@ -22,23 +23,24 @@ export default function Home() {
   // from this on I am going to update nemList list and convList from MongoDB.
   const fetchMessages = async () => {
     try {
-      const response = await axios.get('https://staging-ng.smartzi.com/leap-node-twilio/messages/api');
-      setMobileNumberList(response.data.map((msg:any) => msg.number))
-      setChatHistory(response.data.find((msg: { number: string; }) => msg.number === activeNum))
+      const response = await loadMessages()
+      setMobileNumberList(response.map((msg:any) => msg.number))
+      setChatHistory(response.find((msg: { number: string; }) => msg.number === activeNum))
     } catch (error) {
-      console.error("error in Fetching from DB to messages/api:",error);
+      console.error("error in Fetching from DB messages/api:",error);
     }
   };
 
   const {lastJsonMessage} = useWebSocket('wss://staging-ng.smartzi.com/leap-node-twilio/')
 
   useEffect(() => {
-    fetchMessages(); 
+    fetchMessages();
   },[activeNum, lastJsonMessage]); 
 
   return (
     <main className={styles.main}>
       <div className={styles.description}>
+        {(authKey == "")? <AuthKeyField authKey={setAuthKey}/> : null}
         <div className="mainContainer">
           <input
             style={{ position: "fixed" }}

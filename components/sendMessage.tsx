@@ -19,9 +19,6 @@ export const sendMessage = (message:string,mobNumber:string,authKey:string) => {
     },
     body: JSON.stringify(requestBody)
   })
-  .then(data => {
-    console.log(data)
-  })
   .catch(error => {
     console.error( error);
   });
