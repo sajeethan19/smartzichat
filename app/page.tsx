@@ -11,7 +11,6 @@ export default function Home() {
   
   const [chatHistory,setChatHistory] =useState([''])
   const [mobileNumberList, setMobileNumberList] = useState(['']);
-  const [sendWatcher,setSendWatcher] = useState(false)
   const numSetter = (num:string) => {
     setChatHistory(["loading"])
     setActiveNum(num)
@@ -62,8 +61,6 @@ export default function Home() {
           <div className="chatWindow">
             <Window
               chatHistory={chatHistory}
-              setSendWatcher={setSendWatcher}
-              sendWatcher={sendWatcher}
               mobNumber={activeNum}
               authKey={"Bearer "+authKey}
             />

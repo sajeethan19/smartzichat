@@ -1,5 +1,5 @@
 
-export const sendMessage = (message:string,mobNumber:string,setSendWatcher:Function,sendWatcher:boolean,authKey:string) => {
+export const sendMessage = (message:string,mobNumber:string,authKey:string) => {
 
 
   const requestBody = {
@@ -48,12 +48,7 @@ export const sendMessage = (message:string,mobNumber:string,setSendWatcher:Funct
     }
     return response.json();
   })
-    .then(result => {
-      console.log("data",result);
-      setSendWatcher(!sendWatcher);
-      // console.log(sendWatcher)
-    })
-    .catch(err => console.log(err))
+  .catch(err => console.log(err))
 
 
 };

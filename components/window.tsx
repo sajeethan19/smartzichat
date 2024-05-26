@@ -7,11 +7,11 @@ import send from '/public/send.svg'
 import {sendMessage} from './sendMessage'
 import SmartziSpinner from './smartziSpinner'
 
-function Window({chatHistory,mobNumber,sendWatcher,setSendWatcher,authKey}:{chatHistory:any,mobNumber:string,sendWatcher:boolean,setSendWatcher:any,authKey:string }) {
+function Window({chatHistory,mobNumber,authKey}:{chatHistory:any,mobNumber:string,authKey:string }) {
     const [msg,setMsg] = useState('')
     const sender = () => {
         if (!(msg.split(' ').join('') == '')){
-            sendMessage(msg,mobNumber,setSendWatcher,sendWatcher,authKey)
+            sendMessage(msg,mobNumber,authKey)
             setMsg('')
         }
 
