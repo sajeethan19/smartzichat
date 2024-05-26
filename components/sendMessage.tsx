@@ -1,5 +1,5 @@
 
-export const sendMessage = (message:string,mobNumber:string,setSendWatcher:Function,sendWatcher:boolean) => {
+export const sendMessage = (message:string,mobNumber:string,setSendWatcher:Function,sendWatcher:boolean,authKey:string) => {
 
 
   const requestBody = {
@@ -14,7 +14,7 @@ export const sendMessage = (message:string,mobNumber:string,setSendWatcher:Funct
   fetch(`${process.env.NEXT_PUBLIC_WHATSAPP_API_URL}`, {
     method: 'POST',
     headers: {
-      'Authorization': `${process.env.NEXT_PUBLIC_WHATSAPP_AUTH_TOKEN}`,
+      'Authorization': `${authKey}`,
       'Content-Type': 'application/json'
     },
     body: JSON.stringify(requestBody)

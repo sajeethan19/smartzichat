@@ -18,6 +18,7 @@ export default function Home() {
   }
   const [activeNum, setActiveNum] = useState('0');
   const [newNum,setNewNum] = useState('')
+  const [authKey,setAuthKey] = useState('')
 
   // from this on I am going to update nemList list and convList from MongoDB.
   const fetchMessages = async () => {
@@ -49,11 +50,12 @@ export default function Home() {
               if (e.key == "Enter"  ) 
               {
                 setMobileNumberList([...mobileNumberList, newNum]);
-                addContact(newNum)
+                addContact(newNum,authKey)
                 setNewNum('')
               }
             }}
           />
+          <input className="keyField" type="text" value={authKey} onChange={(e) => setAuthKey(e.target.value)} />
           <div className="Panel">
             <Panel numberList={mobileNumberList} numSetter={numSetter} num={activeNum}/>
           </div>
@@ -63,6 +65,7 @@ export default function Home() {
               setSendWatcher={setSendWatcher}
               sendWatcher={sendWatcher}
               mobNumber={activeNum}
+              authKey={"Bearer "+authKey}
             />
 
           </div>

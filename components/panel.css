@@ -5,19 +5,27 @@
 }
 .contactCard{
     height: 15vh;
-    border-bottom: 1pt solid black;
+    /* border-bottom: 1pt solid black; */
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    border-radius:50px;
+    background-color: rgb(60, 60, 60);
+    margin: 10px ;
+    transition-duration: 0.4s;
 }
 .contactCardSelected{
     height: 15vh;
-    border-bottom: 1pt solid black;
-    background-color: rgb(40, 40, 40);;
+    /* border-bottom: 1pt solid black; */
+    background-color: rgb(120, 119, 119);;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    border-radius:20px;
     pointer-events: none;
+    margin: 10px ;
+    
+    transition-duration: 0.4s;
 }

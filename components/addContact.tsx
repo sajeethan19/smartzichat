@@ -1,5 +1,5 @@
 
-export const addContact = (mobNumber:string) => {
+export const addContact = (mobNumber:string,authKey:string) => {
     const requestBody = {
       messaging_product: 'whatsapp',
       to: mobNumber,
@@ -16,7 +16,7 @@ export const addContact = (mobNumber:string) => {
     fetch(`${process.env.NEXT_PUBLIC_WHATSAPP_API_URL}`, {
       method: 'POST',
       headers: {
-        'Authorization': `${process.env.NEXT_PUBLIC_WHATSAPP_AUTH_TOKEN}`,
+        'Authorization': `Bearer ${authKey}`,
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(requestBody)
