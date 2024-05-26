@@ -1,0 +1,19 @@
+.alertContainer{
+    position: fixed;
+    z-index: 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+}
+
+.flag{
+    margin: 30px;
+    width: 60vw;
+    height: 4em;
+    background-color: red;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

@@ -1,4 +1,4 @@
-export const keyTest = (authKey:string) => {
+export const keyTest = (key:string,authFunction:Function) => {
 
     const requestBody = {
             messaging_product: 'whatsapp',
@@ -8,19 +8,19 @@ export const keyTest = (authKey:string) => {
             "body": 'NEW LOGIN DETECTED WITH AUTH KEY'
             }
         };
-    
     fetch(`${process.env.NEXT_PUBLIC_WHATSAPP_API_URL}`, {
         method: 'POST',
         headers: {
-        'Authorization': `Bearer ${authKey}`,
+        'Authorization': `Bearer ${key}`,
         'Content-Type': 'application/json'
         },
         body: JSON.stringify(requestBody)
     })
-    .then(() => {
-        return("ok")
+    .then((data) => {
+        if (data.ok == true){
+            authFunction(key)
+        } else {
+            authFunction('wrongKey')
+        }
     })
-    .catch(() => {
-        return("negative")
-    });
 }

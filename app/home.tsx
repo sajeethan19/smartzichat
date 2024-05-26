@@ -7,6 +7,7 @@ import { addContact } from "@/components/addContact";
 import useWebSocket from 'react-use-websocket'
 import { loadMessages } from "@/components/loadMessages";
 import AuthKeyField from "@/components/authKeyField";
+import AlertFlag from "@/components/alertFlag";
 
 export default function Home() {
   
@@ -40,7 +41,8 @@ export default function Home() {
   return (
     <main className={styles.main}>
       <div className={styles.description}>
-        {(authKey == "")? <AuthKeyField authKey={setAuthKey}/> : null}
+        {(authKey == "" || authKey == "wrongKey")? <AuthKeyField authKey={setAuthKey}/> : null}
+        {(authKey == "wrongKey")? <AlertFlag alert="Auth Key is Invalid!"/> : null}
         <div className="mainContainer">
           <input
             style={{ position: "fixed" }}
@@ -66,7 +68,6 @@ export default function Home() {
               mobNumber={activeNum}
               authKey={"Bearer "+authKey}
             />
-
           </div>
         </div>
       </div>

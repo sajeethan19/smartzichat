@@ -6,8 +6,8 @@ import { keyTest } from './keyTester'
 function AuthKeyField({authKey}:{authKey:Function}) {
     const [key,setKey] = useState('')
     const keyAdder = () => {
-        authKey(key)
-        console.log("test",keyTest(key))
+        // authKey(key)
+        keyTest(key,authKey)
     }
     return (
         <div className='fillContainer'>
